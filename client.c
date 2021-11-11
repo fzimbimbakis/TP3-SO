@@ -26,6 +26,7 @@ int main()
 
     connect(socketfd,(const struct sockaddr *) &cliaddr, sizeof(cliaddr));
 
+    //que corte cuando mandamos EOF
     while(1){
     	char c;
     	while((c=getchar())!='\n'){
@@ -39,7 +40,7 @@ int main()
 
     }
 
-
+    close(socketfd);
 	return 0;
 }
 
