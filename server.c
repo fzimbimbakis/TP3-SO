@@ -9,6 +9,15 @@
 #include <string.h>
 #include "desafios.h"
 
+char* easter_egg=" _______________________\n"
+                "< ESTO ES UN EASTER_EGG >\n"
+                " -----------------------\n"
+                "        \\   ^__^\n"
+                "         \\  (oo)\\_______\n"
+                "            (__)\\       )\\/\\\n"
+                "                ||----w |\n"
+                "                ||     ||";
+
 
 typedef void (*funcs)();
 
@@ -25,7 +34,7 @@ void clientComunication(int fd){
     char buffer[1024] = {0};
 
 
-    for(int i=0; i < 4; i++){
+    for(int i=0; i < 10; i++){
 
         int incorrect;
         int r;
@@ -47,7 +56,7 @@ void clientComunication(int fd){
             if(strcmp(respuestas[i],buffer)==0)
                 incorrect=0;
             else{
-                printf("Respuesta incorrecta: %s", buffer);
+                printf("Respuesta incorrecta: %s\n", buffer);
                 sleep(3);
             }
 

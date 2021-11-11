@@ -1,6 +1,7 @@
 
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include <string.h>
 #include "desafios.h"
 
@@ -54,27 +55,68 @@ void desafio5(){
     printf("respuesta = strings:28\n\n\n");
 
 
-    printf("----- PREGUNTA PARA INVESTIGAR -----\n¿Cómo garantiza TCP que los paquetes llegan en orden y no se pierden?");
+    printf("----- PREGUNTA PARA INVESTIGAR -----\n¿Cómo garantiza TCP que los paquetes llegan en orden y no se pierden?\n\n");
 
 }
-void desafio6(){
+void desafio6(){//.RUN_ME
 
 }
-void desafio7(){
 
-}
+
 void desafio8(){
 
+    printf("¿?\n\n");
+
+    printf("\x1B[30;40m La respuesta es BUmyYq5XxXGt \x1B[0m\n");
+
+    printf("----- PREGUNTA PARA INVESTIGAR -----\n¿Qué aplicaciones se pueden utilizar para ver el tráfico por la red?\n\n");
 }
-void desafio9(){
+void desafio7(){//filtrar error
 
 }
-void desafio10(){
+
+
+void desafio9(){//u^v
+
+    printf("Latexme\n\nSi\n\\mathrm{d}y = u^v{\\cdot}(v'{\\cdot}\\ln{(u)}+v{\\cdot}\\frac{u'}{u})\nentonces\ny = \n\n");
+
+
+    printf("----- PREGUNTA PARA INVESTIGAR -----\nsockets es un mecanismo de IPC. ¿Qué es más eficiente entre sockets y pipes?\n\n");
 
 }
+void desafio10(){//quine
+
+    int correcta=0;
+
+    printf("quine\n\n");
+
+    if(system("gcc quine.c -o quine") == 0) {
+        printf("¡Genial!, ya lograron meter un programa en quine.c, veamos si hace lo que corresponde.\n\n");
+
+        system("./quine > aux.txt");
+
+        if(system("diff quine.c aux.txt") != 0){
+            printf("diff encontró diferencias.\n\n");
+        }else{
+            correcta=1;
+            printf("La respuesta es chin_chu_lan_cha\n\n");
+        }
+
+        system("rm -f aux.txt quine");
+    }
+
+    if(!correcta)
+        printf("\nENTER para reintentar.\n\n");
+
+    printf("----- PREGUNTA PARA INVESTIGAR -----\n¿Cuáles son las características del protocolo SCTP?\n\n");
+}
+
+
 void desafio11(){
 
 }
+
+
 void desafio12(){
 
 }
