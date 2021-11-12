@@ -62,6 +62,25 @@ void desafio6(){//.RUN_ME
 
 }
 
+void desafio7(){//filtrar error
+    printf("Filter error\n");
+    srand(time(NULL));
+
+    char* hint= "La respuesta es K5n2UFfpFMUN\n";
+    int largo = strlen(hint);
+    int Min = 32, diff = 127-Min;
+    for (int i = 0; i < largo; i++)
+    {
+        for (int j = 0; j < (((double)4/RAND_MAX) * rand() + 4); j++)
+        {
+            fprintf(stderr, "%c", (int) (((double)(diff+1)/RAND_MAX) * rand() + Min));
+            fflush(stderr);
+        }
+        printf("%c", hint[i]);
+        fflush(stdout);
+    }
+    
+}
 
 void desafio8(){
 
@@ -70,9 +89,6 @@ void desafio8(){
     printf("\x1B[30;40m La respuesta es BUmyYq5XxXGt \x1B[0m\n");
 
     printf("----- PREGUNTA PARA INVESTIGAR -----\n¿Qué aplicaciones se pueden utilizar para ver el tráfico por la red?\n\n");
-}
-void desafio7(){//filtrar error
-
 }
 
 
