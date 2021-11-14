@@ -26,15 +26,16 @@ funcs desafios[12]={(funcs)&desafio1,(funcs)&desafio2,(funcs)&desafio3,
                     (funcs)&desafio8,(funcs) &desafio9, (funcs)&desafio10, (funcs)&desafio11, (funcs)&desafio12};
 
 
-char* respuestas[10]={"entendido\n", "itba\n", "M4GFKZ289aku\n", "fk3wfLCm3QvS\n",
-                     "too_easy\n", ".RUN_ME\n","K5n2UFfpFMUN\n","BUmyYq5XxXGt\n" , "u^v\n", "chin_chu_lan_cha\n"};
+char* respuestas[12]={"entendido\n", "itba\n", "M4GFKZ289aku\n", "fk3wfLCm3QvS\n",
+                     "too_easy\n", ".RUN_ME\n","K5n2UFfpFMUN\n","BUmyYq5XxXGt\n" , "u^v\n", "chin_chu_lan_cha\n",
+                     "gdb_rules\n", "normal\n"};
 
 
 void clientComunication(int fd){
     char buffer[1024] = {0};
 
 
-    for(int i=0; i < 10; i++){
+    for(int i=0; i < 12; i++){
 
         int incorrect;
         int r;

@@ -6,7 +6,7 @@ client: client.c
 	gcc $(GCC_FLAGS) client.c -o client
 
 server: server.c desafios.c
-	gcc $(GCC_FLAGS) server.c desafios.c -o server2
+	gcc $(GCC_FLAGS) -lm server.c desafios.c -o server2
 
 clean:
 	rm -f *.o

@@ -3,6 +3,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
+#include <math.h>
 #include "desafios.h"
 
 
@@ -14,7 +16,6 @@ void desafio1(){
     printf("Para verificar que sus respuestas tienen el formato correcto respondan a este desafío con la palabra \'entendido\\n\'\n\n\n");
 
 
-    printf("----- PREGUNTA PARA INVESTIGAR -----\n¿Cómo descubrieron el protocolo, la dirección y el puerto para conectarse?\n\n");
 
 };
 
@@ -24,7 +25,6 @@ void desafio2(){
     printf("The Wire S1E5\n5295 888 6288\n\n\n");
 
 
-    printf("----- PREGUNTA PARA INVESTIGAR -----\n¿Qué diferencias hay entre TCP y UDP y en qué casos conviene usar cada uno?\n\n");
 
 }
 
@@ -33,7 +33,6 @@ void desafio3(){
 
     printf("https://ibb.co/tc0Hb6w\n\n\n");
 
-    printf("----- PREGUNTA PARA INVESTIGAR -----\n¿El puerto que usaron para conectarse al server es el mismo que usan para mandar las respuestas? ¿Por qué?\n\n");
 
 }
 
@@ -43,10 +42,9 @@ void desafio4(){
     printf("EBADF...\n\n");
     //bad file descriptor
 
-    if(write(13,"................................La respuesta es fk3wfLCm3QvS\n", strlen("................................La respuesta es fk3wfLCm3QvS\n"))<0)
-        printf("write: Bad file descriptor\n");
+    if(write(13,"................................La respuesta es fk3wfLCm3QvS\n\n", strlen("................................La respuesta es fk3wfLCm3QvS\n"))<0)
+        printf("write: Bad file descriptor\n\n");
 
-    printf("\n----- PREGUNTA PARA INVESTIGAR -----\n¿Qué útil abstracción es utilizada para comunicarse con sockets? ¿se puede utilizar read(2) y write(2) para operar?\n\n");
 
 }
 void desafio5(){
@@ -55,18 +53,23 @@ void desafio5(){
     printf("respuesta = strings:28\n\n\n");
 
 
-    printf("----- PREGUNTA PARA INVESTIGAR -----\n¿Cómo garantiza TCP que los paquetes llegan en orden y no se pierden?\n\n");
 
 }
+
+//https://stackoverflow.com/questions/3516398/define-a-program-section-in-c-code-gcc
+char hint __attribute__((section(".RUN_ME")));
 void desafio6(){//.RUN_ME
+    printf(".got.plt .data ??? .bss .comment\n\n\n");
+
+
 
 }
 
 void desafio7(){//filtrar error
-    printf("Filter error\n");
+    printf("Filter error\n\n");
     srand(time(NULL));
 
-    char* hint= "La respuesta es K5n2UFfpFMUN\n";
+    char* hint= "La respuesta es K5n2UFfpFMUN\n\n";
     int largo = strlen(hint);
     int Min = 32, diff = 127-Min;
     for (int i = 0; i < largo; i++)
@@ -86,10 +89,9 @@ void desafio8(){
 
     printf("¿?\n\n");
 
-    printf("\x1B[30;40m La respuesta es BUmyYq5XxXGt \x1B[0m\n");
+    printf("\x1B[30;40m La respuesta es BUmyYq5XxXGt \x1B[0m\n\n");
 
-    printf("----- PREGUNTA PARA INVESTIGAR -----\n¿Qué aplicaciones se pueden utilizar para ver el tráfico por la red?\n\n");
-}
+    }
 
 
 void desafio9(){//u^v
@@ -97,7 +99,6 @@ void desafio9(){//u^v
     printf("Latexme\n\nSi\n\\mathrm{d}y = u^v{\\cdot}(v'{\\cdot}\\ln{(u)}+v{\\cdot}\\frac{u'}{u})\nentonces\ny = \n\n");
 
 
-    printf("----- PREGUNTA PARA INVESTIGAR -----\nsockets es un mecanismo de IPC. ¿Qué es más eficiente entre sockets y pipes?\n\n");
 
 }
 void desafio10(){//quine
@@ -124,15 +125,49 @@ void desafio10(){//quine
     if(!correcta)
         printf("\nENTER para reintentar.\n\n");
 
-    printf("----- PREGUNTA PARA INVESTIGAR -----\n¿Cuáles son las características del protocolo SCTP?\n\n");
 }
 
+
+
+int gdbme(){
+
+    if(getpid() == 0x12345678){
+        printf("La clave es gdb_rules\n\n");
+    }
+    return 0;
+
+}
 
 void desafio11(){
 
+    printf("b gdbme y encontrá el valor mágico\n\n");
+
+    gdbme();
+
 }
 
-
+//https://en.m.wikipedia.org/wiki/Box–Muller_transform
 void desafio12(){
+    printf("Me conocés\n\n");
+    srand(time(NULL));
 
+    for(int i=0; i<500; i++){
+
+        double u1;
+        do {
+            u1 = (double)rand() / RAND_MAX;
+        }while(u1==0 || u1==1);
+
+        double u2;
+        do {
+            u2 = (double)rand() / RAND_MAX;
+        }while(u2==0 || u2==1);
+
+        double n1 = sqrt(-2*log(u1))*cos(2*3.1416*u2);
+        double n2 = sqrt(-2*log(u1))*sin(2*3.1416*u2);
+
+        printf("%g %g ", n1, n2);
+    }
+
+    printf("\n\n");
 }
