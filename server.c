@@ -66,6 +66,9 @@ void clientComunication(int fd){
 
         }while(incorrect);
     }
+    system("clear -x");
+
+    printf("Felicitaciones, finalizaron el juego.\n\n");
 
 }
 
@@ -77,19 +80,36 @@ int main(){
     int addrlen=sizeof (address);
 
 
-    serverfd = socket(AF_INET, SOCK_STREAM, 0);
+    serverfd = socket(PF_INET, SOCK_STREAM, IPPROTO_IP);
+    if(serverfd < 0){
+        perror("socket failed");
+        exit(EXIT_FAILURE);
+    }
 
-    setsockopt(serverfd, SOL_SOCKET,SO_REUSEPORT,&opt, sizeof(opt));
+    if(setsockopt(serverfd, SOL_SOCKET,SO_REUSEPORT,&opt, sizeof(opt)) < 0){
+        perror("setsockopt failed");
+        exit(EXIT_FAILURE);
+    }
 
     address.sin_family = AF_INET;
     address.sin_addr.s_addr = INADDR_ANY;
     address.sin_port = htons( PORT );
 
-    bind(serverfd, (struct sockaddr *)&address,sizeof(address));
+    if(bind(serverfd, (struct sockaddr *)&address,sizeof(address)) < 0){
+        perror("bind failed");
+        exit(EXIT_FAILURE);
+    }
 
-    listen(serverfd, 3);
+    if(listen(serverfd, 5) < 0){
+        perror("listen failed");
+        exit(EXIT_FAILURE);
+    }
 
     new_fd=accept(serverfd, (struct sockaddr *)&address,(socklen_t*)&addrlen);
+    if( new_fd < 0){
+        perror("accept failed");
+        exit(EXIT_FAILURE);
+    }
 
     clientComunication(new_fd);
 

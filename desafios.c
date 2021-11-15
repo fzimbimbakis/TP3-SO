@@ -17,7 +17,7 @@ void desafio1(){
 
 
 
-};
+}
 
 
 void desafio2(){
@@ -47,17 +47,18 @@ void desafio4(){
 
 
 }
+
 void desafio5(){
 
 
-    printf("respuesta = strings:28\n\n\n");
+    printf("respuesta = strings:53\n\n\n");
 
 
 
 }
 
 //https://stackoverflow.com/questions/3516398/define-a-program-section-in-c-code-gcc
-char hint __attribute__((section(".RUN_ME")));
+char hint __attribute__((section(".RUN_ME")));//strings 294
 void desafio6(){//.RUN_ME
     printf(".got.plt .data ??? .bss .comment\n\n\n");
 
@@ -134,15 +135,14 @@ int gdbme(){
     if(getpid() == 0x12345678){
         printf("La clave es gdb_rules\n\n");
     }
-    return 0;
+
+    exit(0);
 
 }
 
 void desafio11(){
 
     printf("b gdbme y encontrá el valor mágico\n\n");
-
-    gdbme();
 
 }
 
@@ -151,14 +151,13 @@ void desafio12(){
     printf("Me conocés\n\n");
     srand(time(NULL));
 
-    for(int i=0; i<500; i++){
+    for(int i=0; i<400; i++){
 
-        double u1;
+        double u1,u2;
         do {
             u1 = (double)rand() / RAND_MAX;
         }while(u1==0 || u1==1);
 
-        double u2;
         do {
             u2 = (double)rand() / RAND_MAX;
         }while(u2==0 || u2==1);
