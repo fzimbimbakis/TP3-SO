@@ -76,7 +76,7 @@ void clientComunication(int fd){
 
 
 int main(){
-    int serverfd ,opt, new_fd;
+    int serverfd ,opt;
     struct sockaddr_in address;
     int addrlen=sizeof (address);
 
@@ -106,7 +106,7 @@ int main(){
         exit(EXIT_FAILURE);
     }
 
-    new_fd=accept(serverfd, (struct sockaddr *)&address,(socklen_t*)&addrlen);
+    int new_fd=accept(serverfd, (struct sockaddr *)&address,(socklen_t*)&addrlen);
     if( new_fd < 0){
         perror("accept failed");
         exit(EXIT_FAILURE);

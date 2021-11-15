@@ -1,7 +1,7 @@
 //https://www.geeksforgeeks.org/socket-programming-cc/
 
 #define PORT 8080
-
+#define EOF -1
 
 
 #include <sys/socket.h>
@@ -38,11 +38,11 @@ int main()
     while(1){
     	char c;
     	while((c=getchar())!='\n'){
-            if(c==-1)
+            if(c==EOF)
                 break;
     		buffer[idx++]=c;
     	}
-        if(c==-1) {
+        if(c==EOF) {
             send(socketfd,"", 0,0);
             break;
         }

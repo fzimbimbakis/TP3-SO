@@ -13,18 +13,24 @@ docker pull agodio/itba-so:1.0
 make all
 ```
 o 
-```make```
+```
+make
+```
 
 
 ### Ejecución 🚀
 Primero se debe ejecutar el server en background
 
-```./server &```
+```
+./server &
+```
 
 
 Luego ejecutamos el client para enviar la información
 
-```./client```
+```
+./client
+```
 
 
 ## Autores
