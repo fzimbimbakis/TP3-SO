@@ -6,7 +6,6 @@
 
 #include <sys/socket.h>
 #include <netinet/in.h>
-#include <arpa/inet.h>
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
@@ -20,7 +19,7 @@ int main()
 {
 	struct sockaddr_in cliaddr;
 
-	int socketfd=socket(PF_INET, SOCK_STREAM, 0);
+	int socketfd=socket(AF_INET, SOCK_STREAM, 0);
 
     if(socketfd < 0){
         perror("socket failed");
@@ -29,7 +28,7 @@ int main()
 
 	cliaddr.sin_family = AF_INET;
     cliaddr.sin_port = htons(PORT);
-    cliaddr.sin_addr.s_addr=inet_addr("127.0.0.1");
+    cliaddr.sin_addr.s_addr=INADDR_ANY;
 
     if(connect(socketfd,(const struct sockaddr *) &cliaddr, sizeof(cliaddr))<0){
         perror("connect failed");

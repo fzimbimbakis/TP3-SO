@@ -5,7 +5,7 @@
 #include <string.h>
 #include <time.h>
 #include <math.h>
-#include "desafios.h"
+#include <desafios.h>
 
 
 
@@ -42,7 +42,7 @@ void desafio4(){
     printf("EBADF...\n\n");
     //bad file descriptor
 
-    if(write(13,"................................La respuesta es fk3wfLCm3QvS\n\n", strlen("................................La respuesta es fk3wfLCm3QvS\n"))<0)
+    if(write(13,"................................La respuesta es fk3wfLCm3QvS\n\n", 64)<0)
         printf("write: Bad file descriptor\n\n");
 
 

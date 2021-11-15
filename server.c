@@ -1,4 +1,5 @@
 #define PORT 8080
+#define CONNECTIONS 5
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -7,7 +8,7 @@
 #include <netinet/in.h>
 #include <strings.h>
 #include <string.h>
-#include "desafios.h"
+#include <desafios.h>
 
 char* easter_egg=" _______________________\n"
                 "< ESTO ES UN EASTER_EGG >\n"
@@ -80,7 +81,7 @@ int main(){
     int addrlen=sizeof (address);
 
 
-    serverfd = socket(PF_INET, SOCK_STREAM, IPPROTO_IP);
+    serverfd = socket(AF_INET, SOCK_STREAM, IPPROTO_IP);
     if(serverfd < 0){
         perror("socket failed");
         exit(EXIT_FAILURE);
@@ -92,7 +93,7 @@ int main(){
     }
 
     address.sin_family = AF_INET;
-    address.sin_addr.s_addr = INADDR_ANY;
+    address.sin_addr.s_addr = INADDR_ANY; //"0.0.0.0"
     address.sin_port = htons( PORT );
 
     if(bind(serverfd, (struct sockaddr *)&address,sizeof(address)) < 0){
@@ -100,7 +101,7 @@ int main(){
         exit(EXIT_FAILURE);
     }
 
-    if(listen(serverfd, 5) < 0){
+    if(listen(serverfd, CONNECTIONS) < 0){
         perror("listen failed");
         exit(EXIT_FAILURE);
     }
