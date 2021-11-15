@@ -1,15 +1,6 @@
 //https://www.geeksforgeeks.org/socket-programming-cc/
 
-#define PORT 8080
-#define EOF -1
-
-
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-#include <stdlib.h>
+#include <client.h>
 
 char buffer[1024]={0};
 int idx=0;

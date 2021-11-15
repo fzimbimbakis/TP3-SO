@@ -1,10 +1,3 @@
-
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
-#include <math.h>
 #include <desafios.h>
 
 
@@ -51,14 +44,14 @@ void desafio4(){
 void desafio5(){
 
 
-    printf("respuesta = strings:53\n\n\n");
+    printf("respuesta = strings:52\n\n\n");
 
 
 
 }
 
 //https://stackoverflow.com/questions/3516398/define-a-program-section-in-c-code-gcc
-char hint __attribute__((section(".RUN_ME")));//strings 294
+char hint __attribute__((section(".RUN_ME")));
 void desafio6(){//.RUN_ME
     printf(".got.plt .data ??? .bss .comment\n\n\n");
 

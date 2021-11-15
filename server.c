@@ -1,14 +1,4 @@
-#define PORT 8080
-#define CONNECTIONS 5
-
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <strings.h>
-#include <string.h>
-#include <desafios.h>
+#include <server.h>
 
 char* easter_egg=" _______________________\n"
                 "< ESTO ES UN EASTER_EGG >\n"
@@ -76,7 +66,7 @@ void clientComunication(int fd){
 
 
 int main(){
-    int serverfd ,opt;
+    int serverfd ,opt=0;
     struct sockaddr_in address;
     int addrlen=sizeof (address);
 
@@ -87,7 +77,7 @@ int main(){
         exit(EXIT_FAILURE);
     }
 
-    if(setsockopt(serverfd, SOL_SOCKET,SO_REUSEPORT,&opt, sizeof(opt)) < 0){
+    if(setsockopt(serverfd, SOL_SOCKET, SO_REUSEPORT, &opt, sizeof(opt)) < 0){
         perror("setsockopt failed");
         exit(EXIT_FAILURE);
     }
